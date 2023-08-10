@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const productRoutes = require("./routes/productRoutes");
 
 const app = express();
 
@@ -26,3 +27,6 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to tech alpha server" });
 });
+
+// route
+app.use("/api/products", productRoutes);
